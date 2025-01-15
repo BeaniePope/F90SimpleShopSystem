@@ -48,6 +48,10 @@ _buyer setVariable ["SSS_ShopInventory", _inventory, true];
 private _function = _shopData select 3;
 _buyer setVariable ["SSS_PurchaseFunction", _function, true];
 
+// Store sell button into buyer
+private _function = _shopData select 5;
+_buyer setVariable ["SSS_SellFunction", _function, true];
+
 // Button function
 (findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_PurchaseButton ctrlAddEventHandler ["ButtonDown", 
 {
@@ -65,10 +69,28 @@ _buyer setVariable ["SSS_PurchaseFunction", _function, true];
     [_selectedItem] remoteExec [_function, _buyer];
 }];
 
+(findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_SellButton ctrlAddEventHandler ["ButtonDown", 
+{
+    // Extract inventory array from player (assume the seller is player)
+    private _seller = player;
+    private _shopInventory = _seller getVariable "SSS_ShopInventory";
+    // Acquires buyer., the shop object
+    private _buyer = _shop select 0;
+    // Get the data of the selected item
+    private _selectedItem = _shopInventory select (lbCurSel ShopMenu_ItemsListboxIDC);
+
+    // Extract purchase function from buyer 
+    private _function = _buyer getVariable "SSS_SellFunction";
+
+    // Execute purchase function
+    [_selectedItem, _buyer] remoteExec [_function, _seller];
+}];
+
 // Code to execute after menu closed
 (findDisplay ShopMenu_MenuIDD) displayAddEventHandler ["Unload",
 {
     // Reset unused variables to prevent any possible data leak
     _buyer setVariable ["SSS_ShopInventory", nil, true];
     _buyer setVariable ["SSS_PurchaseFunction", nil, true];
+    _buyer setVariable ["SSS_SellFunction", nil, true];
 }];

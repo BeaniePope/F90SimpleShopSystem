@@ -5,20 +5,18 @@
         Sell item from player inventory 
 
     Parameter(s):
-        _money - Money being added to player. [INTEGER]
         _item -  Item being sold. [STRING]
-        _unit - unit selling item [OBJECT]
         _shop - shop buying the item [OBJECT]
 
     Returns:
         Nothing.
 */
-params["_item", "_seller", "_shop"]
+params["_item", "_shop"]
 
+private _seller = player;
 
 if (isNil {_seller}) exitWith {[Shop_Debug, "sellItem", "(ERROR) Function was not executed. Provided unit does not exist", true, true] call F90_fnc_debug};
 if (isNil {_item}) exitWith {[Shop_Debug, "sellItem", "(ERROR) Function was not executed. Provided item does not exist", true, true] call F90_fnc_debug};
-
 
 
 private _balance = [_seller] call F90_fnc_getMoney;

@@ -46,13 +46,25 @@ class shopMenu
 			colorBackground[] = {0.192,0.365,0.31,1};
 			tooltip = "Purchase The Selected Item"; //--- ToDo: Localize;
 		};
+		class button_ShopSell: RscButton
+		{
+			idc = 1108;
+			
+			text = "Sell"; //--- ToDo: Localize;
+			x = 0.300025 * safezoneW + safezoneX;
+			y = 0.731 * safezoneH + safezoneY;
+			w = 0.0928125 * safezoneW;
+			h = 0.033 * safezoneH;
+			colorBackground[] = {0.192,0.365,0.31,1};
+			tooltip = "Sell The Selected Item"; //--- ToDo: Localize;
+		};
 		class button_ShopClose: RscButton
 		{
 			idc = 1105;
 			action = "[] call F90_fnc_closeMenu";
 
 			text = "Close"; //--- ToDo: Localize;
-			x = 0.520625 * safezoneW + safezoneX;
+			x = 0.457625 * safezoneW + safezoneX; 300625
 			y = 0.731 * safezoneH + safezoneY;
 			w = 0.0825 * safezoneW;
 			h = 0.033 * safezoneH;
