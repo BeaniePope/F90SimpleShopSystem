@@ -28,7 +28,7 @@ ctrlSetText [ShopMenu_NameTextIDC, _shopName];
 
 // Set player's balance
 private _balanceText = [_buyer, true] call F90_fnc_getMoney;
-ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
+ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText + Economy_CurrencyName];
 
 // Populate Listbox 
 private _inventory = _shopData select 2;

@@ -19,12 +19,10 @@ if (isNil {_amount}) then {_amount = 0};
 
 private _money = [_unit] call F90_fnc_getMoney;
 
-if (isNil {_money}) then 
+if (_amount > _money) then 
 {
-    _money = Economy_PlayerStartingMoney - _amount;
-} else 
-{
-    _money = _money - _amount;
+    _amount = _money;
+    diag_log "name of the idiot who lost all his money:" + " " + str _unit;
 };
 
 for "_i" from 1 to _money do 
