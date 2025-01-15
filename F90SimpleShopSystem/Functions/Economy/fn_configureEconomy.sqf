@@ -13,11 +13,11 @@
 // True to turn on debug log
 Economy_Debug = false;
 // Name of the currency
-Economy_CurrencyName = "Milcash";
+Economy_CurrencyName = "Ruble";
 // Symbol or abbreviation of your currency
-Economy_CurrencySymbol = "$";
+Economy_CurrencySymbol = "₽";
 // Default milcash for players
-Economy_PlayerStartingMoney = 500; 
+Economy_PlayerStartingMoney = 100; 
 // Milcash for all spawned BLUFOR units
 Economy_DefaultBLUFORMoney = 5000; 
 // Milcash for all spawned OPFOR units

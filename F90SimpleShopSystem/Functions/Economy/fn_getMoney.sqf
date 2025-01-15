@@ -17,7 +17,7 @@ if (isNil {_unit}) exitWith {[Shop_Debug, "getMoney", "(ERROR) Function not exec
 if (isNull _unit) exitWith {[Shop_Debug, "getMoney", "(ERROR) Function not executed. Provided unit is not exist", true, true] call F90_fnc_debug};
 
 private _return = nil;
-private _money = _unit getVariable [Economy_CurrencyName, nil];
+_money = {"rvg_money" == _x} count (items player);
 
 if (isNil {_convertToString}) then {_convertToString = false};
 

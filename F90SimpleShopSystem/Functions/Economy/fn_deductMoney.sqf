@@ -27,6 +27,9 @@ if (isNil {_money}) then
     _money = _money - _amount;
 };
 
-[_unit, _money] call F90_fnc_setMoney;
+for "_i" from 1 to _money do 
+{
+    player removeItem "rvg_money"
+};
 
 _money

@@ -19,4 +19,9 @@ if (isNil {_amount}) then {_amount = 0};
 
 _unit setVariable [Economy_CurrencyName, _amount, true];
 
+for "_i" from 1 to _amount do 
+{
+    player addItem "rvg_money"
+};
+
 _amount

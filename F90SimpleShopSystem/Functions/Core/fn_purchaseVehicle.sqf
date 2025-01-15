@@ -12,11 +12,11 @@
 */ 
 params ["_item"];
 
-// Set player as buyer 
+// Set player as buyer
 private _buyer = player;
 // Get player's money
 private _balance = [_buyer] call F90_fnc_getMoney;
-// Get item's price 
+// Get item's price
 private _itemPrice = _item select 2;
 
 // Check if player has sufficient balance
@@ -30,13 +30,13 @@ if (_balance >= _itemPrice) then
     // Spawn vehicle
     _itemClass createVehicle _spawnPos;
 
-    // Notify player 
+    // Notify player
     private _itemName = _item select 1;
     [format ["You have bought %1 for %2 %3", _itemName, _itemPrice, Economy_CurrencyName]] call F90_fnc_textNotification;
 
     if (dialog) then {closeDialog 2};
-} else 
+} else
 {
-    // Notify player 
+    // Notify player
     [format ["You do not have enough %1", Economy_CurrencyName], "ERROR"] call F90_fnc_textNotification;
 };
