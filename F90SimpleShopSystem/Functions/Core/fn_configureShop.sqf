@@ -13,7 +13,7 @@
 // Configuration file for shop system
 
 // True to log debug messages
-Shop_Debug = true;
+Shop_Debug = false;
 // List of shop inventory. 
 // Format ARRAY["className", "displayName", price, value]
 
