@@ -21,15 +21,5 @@ waitUntil {!isNil "SSS_AllShops"};
         "SSS_OpenActionID"
     ] remoteExec ["F90_fnc_addAction", 0, true];
 
-    private _markerType = "fmarker_Shop";
-    if (count _shopData > 4) then 
-    {
-        _markerType = _shopData select 4;
-        if (_markerType isEqualTo "" || _markerType isEqualTo " ") then 
-        {
-            _markerType = "fmarker_Shop";
-        };
-    };
-    [["Shop", true], position _shop, _markerType] call F90_fnc_createMarker;
 } forEach SSS_AllShops;
 
