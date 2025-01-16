@@ -5,25 +5,25 @@
         Sell item from player inventory 
 
     Parameter(s):
-        _item -  Item being sold. [STRING]
+        _item -  Item being sold. [ARRAY]
         _shop - shop buying the item [OBJECT]
 
     Returns:
         Nothing.
 */
-params["_item", "_shop"]
+params["_item", "_shop"];
 
 private _seller = player;
 
-if (isNil {_seller}) exitWith {[Shop_Debug, "sellItem", "(ERROR) Function was not executed. Provided unit does not exist", true, true] call F90_fnc_debug};
 if (isNil {_item}) exitWith {[Shop_Debug, "sellItem", "(ERROR) Function was not executed. Provided item does not exist", true, true] call F90_fnc_debug};
 
+if (isNil {_shop}) exitWith {[Shop_Debug, "sellItem", "(ERROR) Function was not executed. Provided shop does not exist", true, true] call F90_fnc_debug};
 
 private _balance = [_seller] call F90_fnc_getMoney;
 // Get item's value 
-private _itemValue = _item select 4;
+private _itemValue = _item select 3;
 //Get Item Name
-private _itemName = _item selet 1;
+private _itemName = _item select 1;
 
 private _itemClass = _item select 0;
 
@@ -37,14 +37,15 @@ if (_sold) then
     [_seller, _itemValue] call F90_fnc_addMoney;
 
     //Adds Item to shop
-    [_shop, _itemClass]
+    [_itemClass, _shop] call F90_fnc_addItemToUnit;
     
     // Notify player 
     private _itemName = _item select 1;
     [format ["You have sold %1 for %2 %3", _itemName, _itemValue, Economy_CurrencyName]] call F90_fnc_textNotification;
+
+    
 } else 
 {
-    ["You do not have %1", _itemName] call F90_fnc_textNotification;
-    // Close dialog
-    if (dialog) then {closeDialog 2};
+    [format ["You do not have any %1", _itemName], "ERROR"] call F90_fnc_textNotification;
+    
 };

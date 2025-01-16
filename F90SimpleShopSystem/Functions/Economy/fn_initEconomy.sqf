@@ -19,6 +19,11 @@ if (isNil {_amount}) then
 {
     _amount = Economy_PlayerStartingMoney;
 };
-_unit setVariable [Economy_CurrencyName, _amount, true];
+
+for "_i" from 1 to _amount do 
+{
+    player addMagazine Economy_CurrencyClass;
+};
+
 
 [Economy_Debug, "initEconomy", format ["%1 milcash has been given to %2", _amount, name _unit], false] call F90_fnc_debug;

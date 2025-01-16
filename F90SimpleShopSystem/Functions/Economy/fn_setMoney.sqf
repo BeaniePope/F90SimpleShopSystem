@@ -21,7 +21,7 @@ _unit setVariable [Economy_CurrencyName, _amount, true];
 
 for "_i" from 1 to _amount do 
 {
-    player addItem "rvg_money"
+    player addMagazine Economy_CurrencyClass;
 };
 
 _amount

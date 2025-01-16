@@ -64,7 +64,7 @@ class shopMenu
 			action = "[] call F90_fnc_closeMenu";
 
 			text = "Close"; //--- ToDo: Localize;
-			x = 0.457625 * safezoneW + safezoneX; 300625
+			x = 0.457625 * safezoneW + safezoneX; 
 			y = 0.731 * safezoneH + safezoneY;
 			w = 0.0825 * safezoneW;
 			h = 0.033 * safezoneH;

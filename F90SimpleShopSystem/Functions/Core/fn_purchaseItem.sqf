@@ -19,7 +19,7 @@ private _balance = [_buyer] call F90_fnc_getMoney;
 // Get item's price 
 private _itemPrice = _item select 2;
 //Get Item Name
-private _itemName = _item selet 1;
+private _itemName = _item select 1;
 
 // Check if player has sufficient balance
 if (_balance >= _itemPrice) then 

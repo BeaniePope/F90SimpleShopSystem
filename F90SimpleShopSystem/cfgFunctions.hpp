@@ -13,6 +13,7 @@ class F90
 		class purchaseItem {};
 		class purchaseVehicle {};
 		class purchaseWeapon {};
+		class sellItem {};
 	};
 	class Economy
 	{
@@ -38,5 +39,6 @@ class F90
 		class populateListBox {};
 		class teleportObject {};
 		class textNotification {};
+		class removeItemFromUnit {};
 	};
 };

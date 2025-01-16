@@ -13,7 +13,7 @@
 // Configuration file for shop system
 
 // True to log debug messages
-Shop_Debug = false;
+Shop_Debug = true;
 // List of shop inventory. 
 // Format ARRAY["className", "displayName", price, value]
 SSS_Shop0Items =
@@ -49,8 +49,8 @@ SSS_Shop2Items =
       Function must have ``params ["_item"];`` on top of the script.
     - STRING:icon is optional. Default is "fmarker_Shop"
 */
-SSS_WeaponShop = [shop_0, "Weapon Shop", SSS_Shop0Items, "F90_fnc_purchaseWeapon", "fmarker_Shop"];
-SSS_VehicleShop = [shop_1, "Vehicle Shop", SSS_Shop1Items, "F90_fnc_purchaseVehicle", "fmarker_Shop"];
+SSS_WeaponShop = [shop_0, "Weapon Shop", SSS_Shop0Items, "F90_fnc_purchaseWeapon", "fmarker_Shop", "F90_fnc_sellItem"];
+SSS_VehicleShop = [shop_1, "Vehicle Shop", SSS_Shop1Items, "F90_fnc_purchaseVehicle", "fmarker_Shop", "F90_fnc_sellItem"];
 SSS_ItemShop = [shop_2, "Item Shop", SSS_Shop2Items, "F90_fnc_purchaseItem", "fmarker_Shop", "F90_fnc_sellItem"];
 
 // All Shops. Add your shop here

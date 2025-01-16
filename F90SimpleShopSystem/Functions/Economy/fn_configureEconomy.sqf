@@ -14,8 +14,10 @@
 Economy_Debug = false;
 // Name of the currency
 Economy_CurrencyName = "Ruble";
+//Class Name for currency
+Economy_CurrencyClass = "rvg_money";
 // Symbol or abbreviation of your currency
-Economy_CurrencySymbol = "₽";
+Economy_CurrencySymbol = "P";
 // Default milcash for players
 Economy_PlayerStartingMoney = 100; 
 // Milcash for all spawned BLUFOR units
@@ -26,3 +28,4 @@ Economy_DefaultOPFORMoney = 7000;
 Economy_DefaultGUERMoney = 5000; 
 // Milcash for all spawned CIV units
 Economy_DefaultCIVMoney = 5000; 
+

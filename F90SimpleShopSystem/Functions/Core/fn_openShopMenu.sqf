@@ -22,13 +22,18 @@ createDialog "shopMenu";
 // Extract shop data from shop
 private _shopData = _shop getVariable "SSS_ShopData";
 
+// Acquire shop class
+_buyer setVariable ["SSS_shopObject", _shop, true];
+
 // Set Shop Name 
 private _shopName = _shopData select 1;
 ctrlSetText [ShopMenu_NameTextIDC, _shopName];
 
 // Set player's balance
 private _balanceText = [_buyer, true] call F90_fnc_getMoney;
-ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText + Economy_CurrencyName];
+ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
+
+
 
 // Populate Listbox 
 private _inventory = _shopData select 2;
@@ -44,47 +49,50 @@ private _contents = [];
 // Store shop inventory array and purchased item into buyer
 _buyer setVariable ["SSS_ShopInventory", _inventory, true];
 
-// Store purchase button into buyer
-private _function = _shopData select 3;
-_buyer setVariable ["SSS_PurchaseFunction", _function, true];
-
-// Store sell button into buyer
-private _function = _shopData select 5;
-_buyer setVariable ["SSS_SellFunction", _function, true];
-
 // Button function
 (findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_PurchaseButton ctrlAddEventHandler ["ButtonDown", 
 {
     // Extract inventory array from player (assume the buyer is player)
-    private _buyer = player;
-    private _shopInventory = _buyer getVariable "SSS_ShopInventory";
+    private _shopInventory = player getVariable "SSS_ShopInventory";
 
     // Get the data of the selected item
     private _selectedItem = _shopInventory select (lbCurSel ShopMenu_ItemsListboxIDC);
 
-    // Extract purchase function from buyer 
-    private _function = _buyer getVariable "SSS_PurchaseFunction";
-
     // Execute purchase function
-    [_selectedItem] remoteExec [_function, _buyer];
+    [_selectedItem] remoteExec ["F90_fnc_purchaseItem", player];
+    
+    private _balanceText = [player, true] call F90_fnc_getMoney;
+    ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
 }];
 
 (findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_SellButton ctrlAddEventHandler ["ButtonDown", 
 {
     // Extract inventory array from player (assume the seller is player)
-    private _seller = player;
-    private _shopInventory = _seller getVariable "SSS_ShopInventory";
-    // Acquires buyer., the shop object
-    private _buyer = _shop select 0;
+    private _shopInventory = player getVariable "SSS_ShopInventory";
+    private _shopObject = player getVariable "SSS_shopObject";
     // Get the data of the selected item
     private _selectedItem = _shopInventory select (lbCurSel ShopMenu_ItemsListboxIDC);
 
-    // Extract purchase function from buyer 
-    private _function = _buyer getVariable "SSS_SellFunction";
-
     // Execute purchase function
-    [_selectedItem, _buyer] remoteExec [_function, _seller];
+    [_selectedItem, _shopObject] remoteExec ["F90_fnc_sellItem", player];
+
+    private _balanceText = [player, true] call F90_fnc_getMoney;
+    ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
+
 }];
+
+(findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_SellButton ctrlAddEventHandler ["MouseMoving", 
+{
+    private _balanceText = [player, true] call F90_fnc_getMoney;
+    ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
+}];
+
+(findDisplay ShopMenu_MenuIDD) displayCtrl ShopMenu_PurchaseButton ctrlAddEventHandler ["MouseMoving", 
+{
+    private _balanceText = [player, true] call F90_fnc_getMoney;
+    ctrlSetText [ShopMenu_BalanceTextIDC, _balanceText];
+}];
+
 
 // Code to execute after menu closed
 (findDisplay ShopMenu_MenuIDD) displayAddEventHandler ["Unload",

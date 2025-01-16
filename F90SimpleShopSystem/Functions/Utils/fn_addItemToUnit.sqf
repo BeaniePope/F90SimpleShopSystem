@@ -2,6 +2,8 @@
 /*
     Author: PrinceF90
 
+    Editor: Queen
+
     Description:
         Same as engine's addItem, but will return false if item can't be added to unit due to some reasons like full inventory.
 
@@ -17,6 +19,7 @@ params ["_item", "_unit"];
 private _oldLoadout = getUnitLoadout _unit;
 
 _unit addItem _item;
+
 sleep 0.1;
 private _newUnitLoadout = getUnitLoadout _unit;
 

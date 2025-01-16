@@ -5,7 +5,7 @@
 
     Description:
         Same as engine's removeItem, but will return false if item can't be removed from unit due to some reasons like full inventory.
-        Literally Prince's addItem but barely changed.
+        Literally Prince's addItem with extra handling
 
     Parameter(s):
         _item - The item to be added to the unit's loadout. [ANY]
@@ -19,6 +19,8 @@ params ["_item", "_unit"];
 private _oldLoadout = getUnitLoadout _unit;
 
 _unit removeItem _item;
+
+sleep 0.1;
 sleep 0.1;
 private _newUnitLoadout = getUnitLoadout _unit;
 

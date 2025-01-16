@@ -25,9 +25,10 @@ if (_amount > _money) then
     diag_log "name of the idiot who lost all his money:" + " " + str _unit;
 };
 
-for "_i" from 1 to _money do 
+
+for "_i" from 1 to _amount do 
 {
-    player removeItem "rvg_money"
+    player removeMagazine Economy_CurrencyClass
 };
 
 _money
