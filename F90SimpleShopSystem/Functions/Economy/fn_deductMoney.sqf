@@ -28,7 +28,7 @@ if (_amount > _money) then
 
 for "_i" from 1 to _amount do 
 {
-    player removeMagazine Economy_CurrencyClass
+    player removeItem Economy_CurrencyClass;
 };
 
 _money

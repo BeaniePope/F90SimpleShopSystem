@@ -5,3 +5,13 @@ class CfgFunctions
 {
 	#include "cfgFunctions.hpp"
 };
+
+class CfgRemoteExec
+{
+	class Functions
+	{
+		mode = 2;
+		jip = 1;
+
+	};
+};

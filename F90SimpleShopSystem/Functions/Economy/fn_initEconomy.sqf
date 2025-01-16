@@ -22,7 +22,7 @@ if (isNil {_amount}) then
 
 for "_i" from 1 to _amount do 
 {
-    player addMagazine Economy_CurrencyClass;
+    player addItem Economy_CurrencyClass;
 };
 
 

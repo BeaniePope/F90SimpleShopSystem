@@ -41,10 +41,18 @@ private _contents = [];
 {
     private _itemName = _x select 1;
     private _itemPrice = _x select 2;
-    private _item = format ["[%1%2]     %3", Economy_CurrencySymbol, _itemPrice, _itemName];
+    private _itemValue = _x select 3;
+    private _item = format ["[%1%2]     %3", Economy_CurrencySymbol, _itemPrice, _itemName, _itemValue];
     _contents pushBack _item;
 } forEach _inventory;
 [ShopMenu_ItemsListboxIDC, _contents, 0] call F90_fnc_populateListBox;
+private _contents = [];
+{
+    private _itemValue = _x select 3;
+    private _item = format ["Value:%2%1", _itemValue, Economy_CurrencySymbol];
+    _contents pushBack _item;
+} forEach _inventory;
+[ShopMenu_ItemsValueListboxIDC, _contents, 0] call F90_fnc_populateListBox;
 
 // Store shop inventory array and purchased item into buyer
 _buyer setVariable ["SSS_ShopInventory", _inventory, true];

@@ -23,7 +23,7 @@ if (isNil {_amount}) then {_amount = 0};
 
 for "_i" from 1 to _amount do 
 {
-    player addMagazine Economy_CurrencyClass;
+    player addItem Economy_CurrencyClass;
 };
 
 

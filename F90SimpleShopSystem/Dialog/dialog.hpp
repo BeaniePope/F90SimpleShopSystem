@@ -85,7 +85,15 @@ class shopMenu
 			idc = 1107;
 			x = 0.298906 * safezoneW + safezoneX;
 			y = 0.28 * safezoneH + safezoneY;
-			w = 0.402187 * safezoneW;
+			w = 0.3502187 * safezoneW;
+			h = 0.429 * safezoneH;
+		};
+		class listBox_ShopItemValues: RscListbox
+		{
+			idc = 1109;
+			x = 0.64990 * safezoneW + safezoneX;
+			y = 0.28 * safezoneH + safezoneY;
+			w = 0.05597 * safezoneW;
 			h = 0.429 * safezoneH;
 		};
 		////////////////////////////////////////////////////////
