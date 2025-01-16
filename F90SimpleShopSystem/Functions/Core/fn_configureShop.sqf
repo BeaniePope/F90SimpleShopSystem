@@ -16,21 +16,9 @@
 Shop_Debug = true;
 // List of shop inventory. 
 // Format ARRAY["className", "displayName", price, value]
-SSS_Shop0Items =
-[
-    ["arifle_MX_F", "MX 6.5mm", 500, 150],
-    ["arifle_Mk20_plain_F", "Mk20 5.56 mm", 500, 150],
-    ["arifle_Mk20_F", "Mk20 5.56 mm (Camo)", 550, 175]
-];
+
 // Format ARRAY["className", "displayName", price, value]
-SSS_Shop1Items = 
-[
-    ["B_MRAP_01_F", "Hunter", 1000, 600],
-    ["B_G_Offroad_01_F", "Offroad", 800, 200],
-    ["B_Quadbike_01_F", "Quad Bike", 500, 150]
-];
-// Format ARRAY["className", "displayName", price, value]
-SSS_Shop2Items = 
+SSS_Shop0Items = 
 [
     ["30Rnd_65x39_caseless_mag", "6.5 mm 30Rnd Sand Mag", 10, 3],
     ["30Rnd_65x39_caseless_khaki_mag", "6.5 mm 30Rnd Khaki Mag", 10, 3],
@@ -49,14 +37,11 @@ SSS_Shop2Items =
       Function must have ``params ["_item"];`` on top of the script.
     - STRING:icon is optional. Default is "fmarker_Shop"
 */
-SSS_WeaponShop = [shop_0, "Weapon Shop", SSS_Shop0Items, "F90_fnc_purchaseWeapon", "fmarker_Shop", "F90_fnc_sellItem"];
-SSS_VehicleShop = [shop_1, "Vehicle Shop", SSS_Shop1Items, "F90_fnc_purchaseVehicle", "fmarker_Shop", "F90_fnc_sellItem"];
-SSS_ItemShop = [shop_2, "Item Shop", SSS_Shop2Items, "F90_fnc_purchaseItem", "fmarker_Shop", "F90_fnc_sellItem"];
+
+SSS_ItemShop = [shop_0, "Item Shop", SSS_Shop2Items, "F90_fnc_purchaseItem", "fmarker_Shop", "F90_fnc_sellItem"];
 
 // All Shops. Add your shop here
 SSS_AllShops = 
 [
-    SSS_WeaponShop,
-    SSS_VehicleShop,
     SSS_ItemShop
 ];
